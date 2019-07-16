@@ -22,6 +22,13 @@ namespace QuickDev.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            #region 注册全局异常捕获事件
+
+            AppDomain.CurrentDomain.UnhandledException += MyApplication.CurrentDomain_UnhandledException;
+            System.Threading.Tasks.TaskScheduler.UnobservedTaskException += MyApplication.TaskScheduler_UnobservedTaskException;
+
+            #endregion
+
             global::Xamarin.Forms.Forms.SetFlags("Shell_Experimental", "Visual_Experimental", "CollectionView_Experimental", "FastRenderers_Experimental");
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
