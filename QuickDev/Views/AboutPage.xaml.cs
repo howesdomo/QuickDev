@@ -13,6 +13,19 @@ namespace QuickDev.Views
         public AboutPage()
         {
             InitializeComponent();
+            this.btnStartScan.Clicked += BtnStartScan_Clicked;
+        }
+
+        private void BtnStartScan_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                App.MyBluetooth.StartScan();
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.GetFullInfo());
+            }
         }
     }
 }

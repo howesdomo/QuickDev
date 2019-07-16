@@ -8,6 +8,7 @@ namespace QuickDev
 {
     public partial class App : Application
     {
+        public static IBluetooth MyBluetooth { get; set; }
 
         public App()
         {
